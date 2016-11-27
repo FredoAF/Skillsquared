@@ -1,0 +1,23 @@
+{
+  "name": "Skillsquared",
+  "version": "0.0.1",
+  "description": "An app to allow users to share skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SleekSkylark/Skillsquared.git"
+  },
+  "author": "Alex Farren",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/SleekSkylark/Skillsquared/issues"
+  },
+  "dependencies": {
+    "express": "~4.14.0",
+    "body-parser": "~1.15.2",
+    "mongoose": "~4.7.0"
+  }
+}
