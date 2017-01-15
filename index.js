@@ -7,8 +7,9 @@ var app         = Express(),
     jsonParser  = bodyParser.json();
 
 // API
-app.post('/api/users/add/',jsonParser,addUser);
+app.post('/api/users/add',jsonParser,addUser);
 app.get('/api/users/list',listUsers);
+app.post('/api/users/delete',jsonParser,deleteUser);
 
 // APP DEF
 app.use('/css', Express.static('css'));
@@ -27,8 +28,18 @@ function addUser(req,res){
 }
 
 function listUsers(req,res){
-  console.log("hit api");
   db.listUsers(function(err,result){
+    if(err){
+      res.statusCode = 403;
+    }else{
+      res.statusCode = 200;
+      res.send(result);
+    }
+  });
+}
+
+function deleteUser(req,res){
+  db.deleteUser(req.body.id, function(err,result){
     if(err){
       res.statusCode = 403;
     }else{

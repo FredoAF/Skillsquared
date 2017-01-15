@@ -1,5 +1,23 @@
 <md-content>
   <h2>
-    Testing123
+    Add User
   </h2>
+  Name: <input type="text" ng-model="nameData" />
+  Age: <input type="text" ng-model="ageData" />
+  <br />
+  <md-button class="md-raised" ng-click="addUser()">Add User</md-button>
+</md-content>
+
+<md-content>
+  <h2>
+    View Users
+  </h2>
+  <ul ng-repeat="user in users">
+    <li>
+      Name:{{user.name}}, Age:{{user.age}}
+      <md-button class="md-raised" ng-click="deleteUser(user._id)">
+        Delete
+      </md-button>
+    </li>
+  </ul>
 </md-content>

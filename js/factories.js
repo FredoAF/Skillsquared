@@ -9,6 +9,12 @@ angular.module('myFactories',[]).factory('myFactory', function($http,$location){
         age:  ageData
       }
       return $http.post("./api/users/add",user);
+    },
+    deleteUser: function(userID){
+      var user = {
+        id: userID
+      }
+      return $http.post("./api/users/delete",user);
     }
   }
 });

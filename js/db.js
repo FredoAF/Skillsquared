@@ -30,14 +30,23 @@ var addUser = function(userDetails, callback){
     if(err) {
       callback(err);
     }else{
-      callback(null);
+      callback(null, data);
     }
   });
 }
 
 var listUsers = function(callback){
-  console.log("hit db");
   userModel.find({},function(err,data){
+    if(err) {
+      callback(err);
+    }else{
+      callback(null, data);
+    }
+  });
+}
+
+var deleteUser = function(userDetails, callback){
+  userModel.remove({_id:userDetails },function(err,data){
     if(err) {
       callback(err);
     }else{
@@ -50,3 +59,4 @@ var listUsers = function(callback){
 module.exports.connectDb = connectDb;
 module.exports.addUser   = addUser;
 module.exports.listUsers = listUsers;
+module.exports.deleteUser = deleteUser;
